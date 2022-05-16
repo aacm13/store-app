@@ -1,13 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { loginStart, loginSuccess } from './auth.actions';
-import { exhaustMap, map } from 'rxjs/operators';
+import { exhaustMap, map, tap } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { AuthResponse } from '../interfaces/authResponse';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthEffects {
-  constructor(private actions$: Actions, private authService: AuthService) {}
+  constructor(
+    private actions$: Actions,
+    private authService: AuthService,
+    private router: Router
+  ) {}
+
   login$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(loginStart),
@@ -21,4 +26,18 @@ export class AuthEffects {
       })
     );
   });
+
+  loginRedirect$ = createEffect(
+    () => {
+      return this.actions$.pipe(
+        ofType(loginSuccess),
+        tap((action) => {
+          this.router.navigate(['/']);
+        })
+      );
+    },
+    {
+      dispatch: false,
+    }
+  );
 }

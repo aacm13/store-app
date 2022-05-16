@@ -8,18 +8,20 @@
       <mat-icon>home</mat-icon>
     </button>
     <span>Login App</span>
-    <div *ngIf="isLoggedIn()" class="nav">
-      <button mat-icon-button aria-label="icon-button with menu icon">
-        Products
-      </button>
-    </div>
+
     <span class="spacer"></span>
     <div *ngIf="!isLoggedIn()">
-      <button mat-icon-button aria-label="icon-button with heart icon">
+      <button
+        routerLink="/login"
+        mat-icon-button
+        aria-label="icon-button with heart icon"
+      >
         Login
       </button>
-      <button mat-icon-button aria-label="icon-button with share icon">
-        Register
+    </div>
+    <div *ngIf="isLoggedIn()">
+      <button mat-icon-button aria-label="icon-button with heart icon">
+        <mat-icon>shopping_cart</mat-icon>
       </button>
     </div>
     <div *ngIf="isLoggedIn()">
@@ -38,7 +40,11 @@
     </div>
     <mat-menu #menu="matMenu">
       <div *ngIf="isLoggedIn()"></div>
-      <button mat-icon-button aria-label="icon-button with share icon">
+      <button
+        (click)="logoutClick()"
+        mat-icon-button
+        aria-label="icon-button with share icon"
+      >
         <mat-icon>logout</mat-icon>
         Logout
       </button>

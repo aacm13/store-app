@@ -1,0 +1,21 @@
+.not-found{
+  margin: auto;
+  text-align: center;
+}
+h1{
+  font-size: 3em;
+}
+.go-home{
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 2em;
+  background-color: red;
+  border: none;
+  outline: none;
+  color: white;
+  &:hover{
+    cursor: pointer;
+    background-color: rgb(188, 1, 1);
+  }
+}
