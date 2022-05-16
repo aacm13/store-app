@@ -15,4 +15,10 @@ export class AuthService {
       { data: { email: email, password: password } }
     );
   }
+  saveToken(token: string) {
+    localStorage.setItem('token', token);
+  }
+  getToken() {
+    return localStorage.getItem('token');
+  }
 }

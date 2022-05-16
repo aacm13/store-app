@@ -9,4 +9,7 @@ export const loginStart = createAction(
   LOGIN_START,
   props<{ email: string; password: string }>()
 );
-export const loginSuccess = createAction(LOGIN_SUCCESS);
+export const loginSuccess = createAction(
+  LOGIN_SUCCESS,
+  props<{ token: string; user: {} }>()
+);

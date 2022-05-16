@@ -10,7 +10,9 @@ import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpRequestInterceptor } from './http-request.interceptor';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     SharedModule,
     HttpClientModule,
+    MatSnackBarModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
@@ -29,7 +32,13 @@ import { HttpClientModule } from '@angular/common/http';
     }),
     EffectsModule.forRoot([]),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpRequestInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
