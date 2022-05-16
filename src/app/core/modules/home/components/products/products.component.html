@@ -2,21 +2,36 @@
 
 <ul>
   <li *ngFor="let product of products | async">
-    <div>
-      <div>
-        <h4>{{ product.name }}</h4>
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title
+          ><a class="prod-link" routerLink="/product/{{ product.slug }}">{{
+            product.name
+          }}</a></mat-card-title
+        >
+        <mat-card-subtitle></mat-card-subtitle>
+      </mat-card-header>
+      <img
+        class="prod-img"
+        mat-card-image
+        [src]="product.image.url"
+        alt="product-img.jpg"
+        height="200px"
+      />
+      <mat-card-content>
+        <p>{{ product.description }}</p>
+        <p>{{ product.master.price | currency }}</p>
         <span>{{ product.published_at | date }}</span>
-      </div>
-      <p>{{ product.description }}</p>
-      <div class="likes-container">
-        <span
-          ><mat-icon>thumbs_up_down</mat-icon>{{ product.likes_count }}</span
-        >
-        <span><mat-icon>thumb_up</mat-icon>{{ product.likes_up_count }}</span>
-        <span
-          ><mat-icon>thumb_down</mat-icon>{{ product.likes_down_count }}</span
-        >
-      </div>
-    </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button><mat-icon>thumb_up</mat-icon></button>
+        <span>{{ product.likes_up_count }}</span>
+        <button mat-button><mat-icon>thumb_down</mat-icon></button>
+        <span>{{ product.likes_down_count }}</span>
+      </mat-card-actions>
+      <span>
+        <mat-icon>thumbs_up_down</mat-icon>{{ product.likes_count }}
+      </span>
+    </mat-card>
   </li>
 </ul>

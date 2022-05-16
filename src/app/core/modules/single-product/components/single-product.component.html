@@ -1,0 +1,13 @@
+<div class="single-prod">
+  <div class="img-prod">
+    <img [src]="prod.image.url" alt="" height="600px" />
+  </div>
+  <div class="info">
+    <h1>{{ prod.name }}</h1>
+    <h2>{{ prod.master.price | currency }}</h2>
+    <p>{{ prod.description }}</p>
+    <hr />
+    <p>sku: {{ prod.master.sku }}</p>
+    <p>category: {{ prod.category.name }}</p>
+  </div>
+</div>

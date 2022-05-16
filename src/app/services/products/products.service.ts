@@ -14,7 +14,7 @@ export class ProductsService {
   getProducts(): Observable<Product[]> {
     return this.http
       .get<GetResponse>(
-        'https://trainee-program-api.applaudostudios.com/api/v1/products'
+        'https://trainee-program-api.applaudostudios.com/api/v1/products?include=image_attachment.blob,master'
       )
       .pipe(
         map((data) => {
@@ -22,7 +22,21 @@ export class ProductsService {
           for (const k of Object.entries(data.data)) {
             products.push(k[1] as Product);
           }
+
           return products;
+        })
+      );
+  }
+
+  getSingleProduct(slug: string): Observable<Product> {
+    return this.http
+      .get<GetResponse>(
+        `https://trainee-program-api.applaudostudios.com/api/v1/products/${slug}?include=image_attachment.blob,master,category`
+      )
+      .pipe(
+        map((data) => {
+          const product: Product = data.data as Product;
+          return product;
         })
       );
   }

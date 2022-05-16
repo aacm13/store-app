@@ -15,6 +15,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'product/:slug',
+    loadChildren: () =>
+      import('./core/modules/single-product/single-product.module').then(
+        (m) => m.SingleProductModule
+      ),
+  },
+  {
     path: '**',
     loadChildren: () =>
       import('./core/modules/notfound/notfound.module').then(

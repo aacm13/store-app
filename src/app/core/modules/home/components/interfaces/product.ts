@@ -8,4 +8,15 @@ export interface Product {
   likes_up_count: string;
   likes_down_count: string;
   published_at: string;
+  image: {
+    id: number;
+    url: string;
+  };
+  master: {
+    price: number;
+    sku: string;
+  };
+  category: {
+    name: string;
+  };
 }

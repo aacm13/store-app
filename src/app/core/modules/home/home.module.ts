@@ -15,6 +15,7 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { CategoriesEffects } from './components/categories/state/categories.effects';
 import { CATEGORY_STATE_NAME } from './components/categories/state/categories.selector';
 import { categoryReducer } from './components/categories/state/categories.reducer';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [HomeComponent, ProductsComponent, CategoriesComponent],
@@ -23,6 +24,7 @@ import { categoryReducer } from './components/categories/state/categories.reduce
     HomeRoutingModule,
     MatSidenavModule,
     MatIconModule,
+    MatCardModule,
     StoreModule.forFeature(PRODUCT_STATE_NAME, productReducer),
     StoreModule.forFeature(CATEGORY_STATE_NAME, categoryReducer),
     EffectsModule.forFeature([ProductsEffects, CategoriesEffects]),

@@ -1,0 +1,19 @@
+.single-prod{
+  display: flex;
+  flex-direction: row;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: 20px;
+  .img-prod{
+    width: 50%;
+    img{
+      max-height: 600px;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  .info{
+    width: 50%;
+  }
+}
