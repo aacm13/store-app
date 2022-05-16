@@ -1,0 +1,47 @@
+<p>
+  <mat-toolbar>
+    <button
+      routerLink="/"
+      mat-icon-button
+      aria-label="icon-button with menu icon"
+    >
+      <mat-icon>home</mat-icon>
+    </button>
+    <span>Login App</span>
+    <div *ngIf="isLoggedIn()" class="nav">
+      <button mat-icon-button aria-label="icon-button with menu icon">
+        Products
+      </button>
+    </div>
+    <span class="spacer"></span>
+    <div *ngIf="!isLoggedIn()">
+      <button mat-icon-button aria-label="icon-button with heart icon">
+        Login
+      </button>
+      <button mat-icon-button aria-label="icon-button with share icon">
+        Register
+      </button>
+    </div>
+    <div *ngIf="isLoggedIn()">
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        aria-label="icon-button with a menu"
+      >
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+          alt=""
+          width="50px"
+          height="50px"
+        />
+      </button>
+    </div>
+    <mat-menu #menu="matMenu">
+      <div *ngIf="isLoggedIn()"></div>
+      <button mat-icon-button aria-label="icon-button with share icon">
+        <mat-icon>logout</mat-icon>
+        Logout
+      </button>
+    </mat-menu>
+  </mat-toolbar>
+</p>
