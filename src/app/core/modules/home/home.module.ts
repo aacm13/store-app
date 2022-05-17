@@ -16,6 +16,9 @@ import { CategoriesEffects } from './components/categories/state/categories.effe
 import { CATEGORY_STATE_NAME } from './components/categories/state/categories.selector';
 import { categoryReducer } from './components/categories/state/categories.reducer';
 import { MatCardModule } from '@angular/material/card';
+import { LIKE_STATE_NAME } from './components/products/state/like.selector';
+import { likeReducer } from './components/products/state/like.reducer';
+import { LikeEffects } from './components/products/state/like.effects';
 
 @NgModule({
   declarations: [HomeComponent, ProductsComponent, CategoriesComponent],
@@ -27,7 +30,8 @@ import { MatCardModule } from '@angular/material/card';
     MatCardModule,
     StoreModule.forFeature(PRODUCT_STATE_NAME, productReducer),
     StoreModule.forFeature(CATEGORY_STATE_NAME, categoryReducer),
-    EffectsModule.forFeature([ProductsEffects, CategoriesEffects]),
+    StoreModule.forFeature(LIKE_STATE_NAME, likeReducer),
+    EffectsModule.forFeature([ProductsEffects, CategoriesEffects, LikeEffects]),
   ],
 })
 export class HomeModule {}

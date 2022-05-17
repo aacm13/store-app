@@ -8,9 +8,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
-  declarations: [NavComponent],
+  declarations: [NavComponent, SearchComponent],
   imports: [
     BrowserAnimationsModule,
     CommonModule,
@@ -20,6 +21,6 @@ import { MatMenuModule } from '@angular/material/menu';
     MatMenuModule,
     MatToolbarModule,
   ],
-  exports: [NavComponent],
+  exports: [NavComponent, SearchComponent],
 })
 export class SharedModule {}

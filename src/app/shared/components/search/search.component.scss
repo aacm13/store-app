@@ -1,0 +1,26 @@
+.search-container{
+  margin-left: 20px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+}
+.search{
+  padding: 10px;
+  border-radius: 10px;
+  width: 200px;
+  outline: none;
+  border: none;
+}
+button{
+  display: block;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  &:hover{
+    cursor: pointer;
+  }
+  .mat-icons{
+    line-height: 1.5;
+  }
+}

@@ -40,4 +40,10 @@ export class ProductsService {
         })
       );
   }
+  likeAndNotProduct(id: string, state: string) {
+    return this.http.post(
+      'https://trainee-program-api.applaudostudios.com/api/v1/likes',
+      { data: { product_id: id, kind: state } }
+    );
+  }
 }

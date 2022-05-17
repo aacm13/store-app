@@ -8,7 +8,9 @@
       <mat-icon>home</mat-icon>
     </button>
     <span>Login App</span>
-
+    <div *ngIf="isLoggedIn()">
+      <app-search></app-search>
+    </div>
     <span class="spacer"></span>
     <div *ngIf="!isLoggedIn()">
       <button
