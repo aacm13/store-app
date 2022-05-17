@@ -11,7 +11,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     const user = JSON.parse(this.auth.getUser()!);
-    console.log(user);
     this.profile = user;
   }
 }

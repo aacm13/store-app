@@ -1,4 +1,3 @@
-import { StringMap } from '@angular/compiler/src/compiler_facade_interface';
 import { createAction, props } from '@ngrx/store';
 
 export const LOGIN_START = '[auth page] login start';

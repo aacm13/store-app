@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 import { AppState } from 'src/app/store/app.state';
@@ -16,11 +15,7 @@ export class LoginComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   invalidLoing!: Boolean;
 
-  constructor(
-    private fb: FormBuilder,
-    private router: Router,
-    private store: Store<AppState>
-  ) {}
+  constructor(private fb: FormBuilder, private store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({

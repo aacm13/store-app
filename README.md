@@ -14,7 +14,7 @@ npm install -g @angular/cli
 
 clone repository:
 
-git clone https://gitlab.com/traineeprogram/week-8-applaudo-studio-challange.git
+git clone https://gitlab.com/traineeprogram/week-9-applaudo-studio-challange.git
 
 navgiate to project folder and install modules:
 
@@ -26,7 +26,7 @@ Run `ng serve --open` for a dev server. Navigate to `http://localhost:4200/`. Th
 
 alternatively go to the link:
 
-https://traineeprogram.gitlab.io/week-8-applaudo-studio-challange/
+https://traineeprogram.gitlab.io/week-9-applaudo-studio-challange/
 
 ## Build
 
