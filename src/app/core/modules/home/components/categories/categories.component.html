@@ -1,6 +1,8 @@
 <h3>Categories</h3>
 <ul>
   <li *ngFor="let cat of categories | async">
-    <div>-{{ cat.name }}</div>
+    <div>
+      -<a routerLink="/search/cat/{{ cat.name }}">{{ cat.name }}</a>
+    </div>
   </li>
 </ul>

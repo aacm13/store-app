@@ -16,6 +16,7 @@ import { postLike } from '../../home/components/products/state/like.action';
 export class SearchResultsComponent implements OnInit {
   ngUnsubscribe$ = new Subject();
   products!: Product[];
+  title = '';
   up = 'up';
   down = 'down';
   search = '';
@@ -29,11 +30,23 @@ export class SearchResultsComponent implements OnInit {
     this.route.paramMap
       .pipe(takeUntil(this.ngUnsubscribe$))
       .subscribe((params) => {
-        const value: string = params.get('value')!;
-        this.search = value;
-        this.productService.searchGetProducts(value).subscribe((response) => {
-          this.products = response;
-        });
+        if (params.has('value')) {
+          this.search = params.get('value')!;
+          this.title = 'Search';
+          this.productService
+            .searchGetProducts(this.search)
+            .subscribe((response) => {
+              this.products = response;
+            });
+        } else if (params.has('cat')) {
+          this.search = params.get('cat')!;
+          this.title = 'Category';
+          this.productService
+            .filterGetProducts(this.search)
+            .subscribe((response) => {
+              this.products = response;
+            });
+        }
       });
   }
 

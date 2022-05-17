@@ -1,7 +1,7 @@
 <h2>Products</h2>
 
-<ul>
-  <li *ngFor="let product of products | async">
+<div class="container">
+  <div class="product" *ngFor="let product of products | async">
     <mat-card class="card">
       <mat-card-header>
         <mat-card-title
@@ -47,5 +47,5 @@
         <mat-icon>thumbs_up_down</mat-icon>{{ product.likes_count }}
       </span>
     </mat-card>
-  </li>
-</ul>
+  </div>
+</div>

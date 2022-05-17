@@ -33,7 +33,13 @@ const routes: Routes = [
         (m) => m.SearchResultsModule
       ),
   },
-
+  {
+    path: 'search/cat/:cat',
+    loadChildren: () =>
+      import('./core/modules/search-results/search-results.module').then(
+        (m) => m.SearchResultsModule
+      ),
+  },
   {
     path: '**',
     loadChildren: () =>

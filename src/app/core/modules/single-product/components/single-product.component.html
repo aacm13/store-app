@@ -9,5 +9,26 @@
     <hr />
     <p>sku: {{ prod.master.sku }}</p>
     <p>category: {{ prod.category.name }}</p>
+    <div>
+      <button
+        mat-button
+        #like
+        [value]="prod.id"
+        (click)="likeAndNotBtn(like.value, up)"
+      >
+        <mat-icon>thumb_up</mat-icon>
+      </button>
+      <span>{{ prod.likes_up_count }}</span>
+      <button
+        mat-button
+        #dislike
+        [value]="prod.id"
+        (click)="likeAndNotBtn(dislike.value, down)"
+      >
+        <mat-icon>thumb_down</mat-icon>
+      </button>
+      <span>{{ prod.likes_down_count }}</span>
+    </div>
+    <span> <mat-icon>thumbs_up_down</mat-icon>{{ prod.likes_count }} </span>
   </div>
 </div>

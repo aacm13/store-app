@@ -6,6 +6,7 @@ import { Observable, pipe, Subject, Subscriber, Subscription } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 import { AppState } from 'src/app/store/app.state';
 import { Product } from '../../home/components/interfaces/product';
+import { postLike } from '../../home/components/products/state/like.action';
 import { loadSingleProduct } from './state/single.actions';
 import { getSingleProduct } from './state/single.selector';
 
@@ -17,6 +18,8 @@ import { getSingleProduct } from './state/single.selector';
 export class SingleProductComponent implements OnInit, OnDestroy {
   ngUnsubscribe$ = new Subject();
   prod!: Product;
+  up = 'up';
+  down = 'down';
 
   constructor(private route: ActivatedRoute, private store: Store<AppState>) {}
 
@@ -33,6 +36,10 @@ export class SingleProductComponent implements OnInit, OnDestroy {
       .subscribe((data) => {
         this.prod = data!;
       });
+  }
+
+  likeAndNotBtn(id: string, state: string) {
+    this.store.dispatch(postLike({ product_id: id, kind: state }));
   }
 
   ngOnDestroy(): void {

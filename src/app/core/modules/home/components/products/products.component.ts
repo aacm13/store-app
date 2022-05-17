@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/store/app.state';
@@ -22,6 +23,7 @@ export class ProductsComponent implements OnInit {
     this.products = this.store.select(getProducts);
     this.store.dispatch(loadProducts());
   }
+
   likeAndNotBtn(id: string, state: string) {
     this.store.dispatch(postLike({ product_id: id, kind: state }));
   }

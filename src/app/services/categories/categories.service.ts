@@ -21,6 +21,7 @@ export class CategoriesService {
           for (const k of Object.entries(data.data)) {
             categories.push(k[1] as Category);
           }
+
           return categories;
         })
       );
