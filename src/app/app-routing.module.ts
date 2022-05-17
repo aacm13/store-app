@@ -22,6 +22,19 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'cart',
+    loadChildren: () =>
+      import('./core/modules/cart/cart.module').then((m) => m.CartModule),
+  },
+  {
+    path: 'search/:value',
+    loadChildren: () =>
+      import('./core/modules/search-results/search-results.module').then(
+        (m) => m.SearchResultsModule
+      ),
+  },
+
+  {
     path: '**',
     loadChildren: () =>
       import('./core/modules/notfound/notfound.module').then(

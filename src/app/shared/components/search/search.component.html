@@ -1,8 +1,10 @@
 <div class="search-container">
   <input
+    #searchIpt
     type="text"
     class="search"
     placeholder="search..."
     autocomplete="false"
+    (keyup.enter)="enterSearch(searchIpt.value)"
   />
 </div>

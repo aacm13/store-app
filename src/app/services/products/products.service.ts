@@ -14,7 +14,7 @@ export class ProductsService {
   getProducts(): Observable<Product[]> {
     return this.http
       .get<GetResponse>(
-        'https://trainee-program-api.applaudostudios.com/api/v1/products?include=image_attachment.blob,master'
+        'https://trainee-program-api.applaudostudios.com/api/v1/products?include=image_attachment.blob,master&page[size]=38'
       )
       .pipe(
         map((data) => {
@@ -40,10 +40,33 @@ export class ProductsService {
         })
       );
   }
+
   likeAndNotProduct(id: string, state: string) {
     return this.http.post(
       'https://trainee-program-api.applaudostudios.com/api/v1/likes',
       { data: { product_id: id, kind: state } }
+    );
+  }
+
+  searchGetProducts(search: string): Observable<Product[]> {
+    return this.http
+      .get<GetResponse>(
+        `https://trainee-program-api.applaudostudios.com/api/v1/products/?[filter][name_cont]=${search}&include=image_attachment.blob,category,master&page[size]=42`
+      )
+      .pipe(
+        map((data) => {
+          const products: Product[] = [];
+          for (const k of Object.entries(data.data)) {
+            products.push(k[1] as Product);
+          }
+          console.log(products);
+          return products;
+        })
+      );
+  }
+  filterGetProducts(cat: string) {
+    return this.http.get(
+      `https://trainee-program-api.applaudostudios.com/api/v1/products/?[filter][category_in]=${cat}&include=image_attachment.blob,category,master&page[size]=42`
     );
   }
 }

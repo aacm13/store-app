@@ -23,8 +23,6 @@ export class ProductsComponent implements OnInit {
     this.store.dispatch(loadProducts());
   }
   likeAndNotBtn(id: string, state: string) {
-    // console.log(id);
-    // console.log(state);
     this.store.dispatch(postLike({ product_id: id, kind: state }));
   }
 }
