@@ -4,6 +4,7 @@ import { loginStart, loginSuccess } from './auth.actions';
 import { exhaustMap, map, tap } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Router } from '@angular/router';
+import { User } from '../../home/components/interfaces/user.interface';
 
 @Injectable()
 export class AuthEffects {
@@ -20,6 +21,7 @@ export class AuthEffects {
         return this.authService.login(action.email, action.password).pipe(
           map((data) => {
             this.authService.saveToken(data.data.token);
+            this.authService.saveUser(data.data.user as User);
             return loginSuccess(data.data);
           })
         );

@@ -25,7 +25,12 @@ export class AuthService {
   saveToken(token: string) {
     localStorage.setItem('token', token);
   }
-
+  saveUser(user: any) {
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+  getUser() {
+    return localStorage.getItem('user');
+  }
   getToken() {
     return localStorage.getItem('token');
   }

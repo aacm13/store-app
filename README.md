@@ -1,27 +1,43 @@
-# StoreApp
+# STORE-APP
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.9.
 
-## Development server
+## You will need
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+node:
+sudo apt install nodejs npm
 
-## Code scaffolding
+Angular Cli:
+npm install -g @angular/cli
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## How to run
+
+clone repository:
+
+git clone https://gitlab.com/traineeprogram/week-8-applaudo-studio-challange.git
+
+navgiate to project folder and install modules:
+
+cd ../GITHUB-PROFILE
+
+npm install
+
+Run `ng serve --open` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+alternatively go to the link:
+
+https://traineeprogram.gitlab.io/week-8-applaudo-studio-challange/
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `ng build` to build the project. The build artifacts will be stored in the `public/` directory.
 
-## Running unit tests
+## Description
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Authors and acknowledgment
 
-## Running end-to-end tests
+Alvaro Corpeño
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Project status
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+INCOMPLETE

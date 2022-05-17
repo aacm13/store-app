@@ -45,7 +45,7 @@
       </button>
     </div>
     <mat-menu #menu="matMenu">
-      <div *ngIf="isLoggedIn()"></div>
+      <div *ngIf="isLoggedIn()"><app-profile></app-profile></div>
       <button
         (click)="logoutClick()"
         mat-icon-button
